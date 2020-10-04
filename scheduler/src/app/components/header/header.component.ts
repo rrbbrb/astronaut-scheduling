@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
       id: 1,
       groupId: "astronaut-1",
       start: "2020-10-05T12:00:00",
-      end: "2020-10-05T19:59:59",
+      end: "2020-10-05T20:00:00",
       title: "Pilot ship",
       classNames: ['astronaut-1'],
       overlap: true
@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
       id: 2,
       groupId: "astronaut-2",
       start: "2020-10-05T20:00:00",
-      end: "2020-10-06T03:59:59",
+      end: "2020-10-06T04:00:00",
       title: "Pilot ship",
       classNames: ['astronaut-1'],
       overlap: true
@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
       id: 3,
       groupId: "astronaut-3",
       start: "2020-10-06T04:00:00",
-      end: "2020-10-06T11:59:59",
+      end: "2020-10-06T12:00:00",
       title: "Pilot ship",
       classNames: ['astronaut-1'],
       overlap: true
