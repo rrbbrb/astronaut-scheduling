@@ -1,18 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { CalendarEvent } from '../model/calendar-event';
+import { Observable } from 'rxjs';
+import { Task } from '../model/task';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
 
-  private events = new BehaviorSubject<CalendarEvent[]>(null);
-  currentEvents = this.events.asObservable();
+  private baseURL: string = "https://localhost:8080/api/"
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
-  injectEvents(events: CalendarEvent[]) {
-    this.events.next(events);
+  getAllTasks(): Observable<any> {
+    return this.httpClient.get<Task[]>(`${this.baseURL}/tasks`);
   }
 }

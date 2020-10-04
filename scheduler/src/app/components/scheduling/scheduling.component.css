@@ -1,0 +1,42 @@
+table {
+    margin: 3rem auto;
+    text-transform: capitalize;
+    width: 80%;
+}
+
+td, tr, th, table {
+    border: 2px solid lightslategray;
+}
+
+th, td {
+    padding: 0.5rem;
+    width: 20%;
+}
+
+th {
+    background-color: lightblue;
+}
+
+button {
+    text-transform: capitalize;
+    cursor: pointer;
+    background-color: palevioletred;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    color: #FFF;
+}
+
+button:hover, button:active{
+    background-color: pink;
+    outline: none;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+button:focus {
+    outline: none;
+}

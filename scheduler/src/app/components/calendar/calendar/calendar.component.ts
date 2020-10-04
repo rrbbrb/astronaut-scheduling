@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarOptions } from '@fullcalendar/angular';
+import { CalendarOptions, EventInput } from '@fullcalendar/angular';
 import { CalendarEvent } from 'src/app/model/calendar-event';
+import { Task } from 'src/app/model/task';
 import { EventService } from 'src/app/services/event.service';
 
 @Component({
@@ -11,27 +12,39 @@ import { EventService } from 'src/app/services/event.service';
 
 export class CalendarComponent implements OnInit {
 
-  events: any;
-
+  tasks: Task[];
+  
   constructor(private eventService: EventService) { }
 
   ngOnInit(): void {
-    this.events = [];
-    this.renderCalendar();
+    this.tasks = [];
+    this.eventService.getAllTasks().subscribe( data => {
+      this.tasks = data;
+      this.renderCalendar(this.tasks);
+    })
   }
   
   calendarOptions: CalendarOptions;
 
-  renderCalendar() {
-    this.eventService.currentEvents.subscribe( events => {
-      this.events = events;
-      console.log("from calendar"+JSON.stringify(this.events));
-    });
+  renderCalendar(tasks: Task[]) {
+    const calEvents = tasks.map( task => {
+      var calendarEvent = new CalendarEvent();
+      calendarEvent.id = +task.id;
+      calendarEvent.title = task.title;
+      calendarEvent.start = JSON.stringify(task.startTime);
+      calendarEvent.end = JSON.stringify(task.endTime);
+      if(task.isWorkTask) {
+        calendarEvent.classNames = ['work'];
+      } else {
+        calendarEvent.classNames = ['non-work'];
+      }
+      return calendarEvent;
+    })
     this.calendarOptions = {
       initialView: 'dayGridMonth',
       weekends: true,
       navLinks: true,
-      events: this.events,
+      events: <EventInput>calEvents,
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',

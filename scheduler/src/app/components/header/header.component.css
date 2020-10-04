@@ -1,12 +1,28 @@
+h1 {
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+}
 a {
+    text-decoration: none;
+    color: #000;
     cursor: pointer;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
+    margin: auto 0.75rem;
 }
 
 a:hover {
-    background-color: aquamarine;
+    background-color: lightblue;
 }
 
 a:active {
-    background-color: cadetblue;
+    background-color: lightgoldenrodyellow;
+}
+
+.container {
+    text-align: center;
+    height: 5rem;
+}
+
+.active {
+    background-color: lightblue;
 }

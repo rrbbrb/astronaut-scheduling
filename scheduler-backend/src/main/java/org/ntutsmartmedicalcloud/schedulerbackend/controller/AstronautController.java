@@ -19,7 +19,7 @@ public class AstronautController {
         return new ResponseEntity<>(astronautService.getAstronaut(), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/new")
     public ResponseEntity<Boolean> addNewAstronaut(@RequestBody AstronautDto astronautDto) {
         return new ResponseEntity<>(astronautService.addNewAstronaut(astronautDto), HttpStatus.OK);
     }

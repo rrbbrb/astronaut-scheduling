@@ -21,7 +21,7 @@ public class TaskController {
         return new ResponseEntity<>(taskService.getAllTasks(), HttpStatus.OK);
     }
 
-    @PostMapping("/schedule")
+    @GetMapping("/schedule")
     public ResponseEntity<List<TaskDto>> scheduleTasks() {
         return new ResponseEntity<>(taskService.scheduleTasks(), HttpStatus.OK);
     }

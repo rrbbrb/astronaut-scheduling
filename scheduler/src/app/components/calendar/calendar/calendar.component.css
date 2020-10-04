@@ -2,3 +2,11 @@
     margin: auto;
     width: 60%;
 }
+
+.work {
+    background-color: salmon;
+}
+
+.non-work {
+    background-color: seagreen;
+}

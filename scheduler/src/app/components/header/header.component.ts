@@ -10,50 +10,8 @@ import { EventService } from 'src/app/services/event.service';
 })
 export class HeaderComponent implements OnInit {
 
-  events: CalendarEvent[] = [
-    {
-      id: 1,
-      groupId: "astronaut-1",
-      start: "2020-10-05T12:00:00",
-      end: "2020-10-05T20:00:00",
-      title: "Pilot ship",
-      classNames: ['astronaut-1'],
-      overlap: true
-    },
-    {
-      id: 2,
-      groupId: "astronaut-2",
-      start: "2020-10-05T20:00:00",
-      end: "2020-10-06T04:00:00",
-      title: "Pilot ship",
-      classNames: ['astronaut-1'],
-      overlap: true
-    },
-    {
-      id: 3,
-      groupId: "astronaut-3",
-      start: "2020-10-06T04:00:00",
-      end: "2020-10-06T12:00:00",
-      title: "Pilot ship",
-      classNames: ['astronaut-1'],
-      overlap: true
-    }
-  ]
-
   constructor(private eventService: EventService) { }
 
-  ngOnInit(): void {
-    this.eventService.injectEvents(this.events);
-  }
-
-  injectEvents(groupId: string) {
-    if(groupId === "all") {
-      this.eventService.injectEvents(this.events);
-    } else {
-      const eventsOfAstronaut = this.events.filter( calendarEvent => calendarEvent.groupId === groupId);
-      console.log(eventsOfAstronaut);
-      this.eventService.injectEvents(eventsOfAstronaut);
-    }
-  }
+  ngOnInit(): void {  }
 
 }
